@@ -49,6 +49,14 @@ Apply the configuration, if you are sure you are ok with the output.
 - Get the respective public ips of each of the aws instances you provisioned in the previous step from terraform output.  
 - SSH to each individual server and setup each respective resource. 
 
+### Results
+Once setup succesfully you will notice the 2 backend instances on your consul UI. Now if you stop one of the two backend instances that are 
+being load-balanced by nginx, consul will immediately notice and update the generated load-balancer.conf for nginx. On the UI you will see 
+one of the servers instances is down, and therefore traffic won't be redirected there.
+![Consul UI](./screenshots/consul_detect.png)
+
+![AWS EC2 Instance](./screenshots/shut_server.png)
+
 ### TODO: 
 I will document my steps in my [blog](https://basebandit.github.io). Just my take away and notes from my own understanding.
 
